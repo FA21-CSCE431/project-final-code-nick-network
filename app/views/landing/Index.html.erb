@@ -15,8 +15,8 @@
     * {
       font-family: "Comic Sans MS", "Comic Sans", cursive;
     }
-    </style>  
-    
+    </style>
+
 
 
   </head>
@@ -27,7 +27,7 @@
     <div class="homeImage noGap">
     <%= image_tag ("https://nick-network.s3.us-east-2.amazonaws.com/grpPic.jpg"), class: "mx-auto d-block", width: "100%"%>
     </div>
-    <div class="span12 pagination-centered"> 
+    <div class="span12 pagination-centered">
     <h3>
     We the Nicks of The Aggie Nickwork,
     </h3>
@@ -49,8 +49,17 @@
     </div>
   </div>
 
-
-
-
-
+  <% if current_user.uid == "110391296899575374577" %>
+    <center>
+      <div class="row-fluid">
+        <h4>
+          <br>Documenation<br>
+          <%= link_to "Amazon Picture Help", "https://docs.google.com/document/d/15LkgjSE5-InskQar09UcoghFitByyfSqucNxAL0qiRA/edit", target: :_blank%><br>
+          <%= link_to "System Support Documenation", "https://docs.google.com/document/d/1EB25wmwI_PCHuceAIERcGpIPJRtQVgEfDPXHnY2OrFs/edit", target: :_blank%><br>
+          <%= link_to "Herkou Application Support", "https://docs.google.com/document/d/1LcE3QQhX_AqavPV3S8XqnhI5Hlw8jwGh83IJECfFGmk/edit", target: :_blank%><br>
+          <%= link_to "Training", "https://docs.google.com/document/d/1E1_i4_a4zeg3JZplvJ4OWlVKDvbveRfIHxUTujvLdGY/edit", target: :_blank%><br>
+        </h4>
+      </div>
+    </center>
+  <% end %>
 </html>

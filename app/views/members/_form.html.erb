@@ -99,6 +99,9 @@
     <% end %>
   </div>
 <% else %>
+  <% if current_user.uid == "110391296899575374577" %>
+    <strong>It is recommended that the current primary officer's credentials are populated here</strong>
+  <% end %>
   <div class="bigger-container">
     <div class="container">
     <%= form_with(model: @member) do |form| %>

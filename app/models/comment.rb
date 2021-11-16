@@ -7,5 +7,6 @@ class Comment < ApplicationRecord
   validates :userID, presence: true
 
   self.primary_key = 'id'
+  # Each comment belongs to a news_post
   belongs_to :news_post
 end

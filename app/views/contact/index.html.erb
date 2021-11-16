@@ -17,34 +17,49 @@
     }
 
 
-    </style>
+  </style>
 
-  </head>
-  
+</head>
+
+<center>
   <div class="container mt-5 d-flex justify-content-center">
     <div class="card p-3 topM">
-        <div class="d-flex align-items-center">
-            <div class="image"> <img src="https://nick-network.s3.us-east-2.amazonaws.com/Nick-hutch.PNG" width="150"> </div>
-            <div class="ml-3 w-100">
-                <h4 class="mb-0 mt-0">Nic Hutcheson</h4> 
-                <span>Position: Chief Student Officer</span>
-                <h5>Email: hutchn00@tamu.edu</h5>
-                <p>Phone: (806)420-5220</p>
+      <div class="d-flex align-items-center">
+        <div class="image"> <img src="https://nick-network.s3.us-east-2.amazonaws.com/Nick-hutch.PNG" width="150"> </div>
+          <div class="ml-3 w-100">
+            <h4 class="mb-0 mt-0">Nic Hutcheson</h4>
+              <span>Position: Chief Student Officer</span>
+              <h5>Email: hutchn00@tamu.edu</h5>
+              <p>Phone: (806)420-5220</p>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-
-
-
-
-  <div class="container mx-auto full-width-row">
-    <div class="row width: 100% ">
-
-      <div class="col-sm-4 col-md-3">    <%= image_tag ("https://nick-network.s3.us-east-2.amazonaws.com/QR.PNG"), class: "rounded float-start", width: "600", height: "350" %>
       </div>
-      
-    <div>
-  </div>
-</html>
 
+
+
+
+      <div class="container mx-auto full-width-row">
+        <div class="row width: 100% ">
+          <div class="col-sm-4 col-md-3" style="left: 17.5%">
+            <%= image_tag ("https://nick-network.s3.us-east-2.amazonaws.com/QR.PNG"), class: "rounded float-start", width: "600", height: "350" %>
+          </div>
+        <div>
+      </div>
+    </div>
+  </center>
+
+  <% if current_user.uid == "110391296899575374577" %>
+    <center>
+      <div class="row-fluid">
+        <h4>
+          <br>Documenation<br>
+          <%= link_to "Amazon Picture Help", "https://docs.google.com/document/d/15LkgjSE5-InskQar09UcoghFitByyfSqucNxAL0qiRA/edit", target: :_blank%><br>
+          <%= link_to "System Support Documenation", "https://docs.google.com/document/d/1EB25wmwI_PCHuceAIERcGpIPJRtQVgEfDPXHnY2OrFs/edit", target: :_blank%><br>
+          <%= link_to "Herkou Application Support", "https://docs.google.com/document/d/1LcE3QQhX_AqavPV3S8XqnhI5Hlw8jwGh83IJECfFGmk/edit", target: :_blank%><br>
+          <%= link_to "Training", "https://docs.google.com/document/d/1E1_i4_a4zeg3JZplvJ4OWlVKDvbveRfIHxUTujvLdGY/edit", target: :_blank%><br>
+        </h4>
+      </div>
+    </center>
+  <% end %>
+</html>

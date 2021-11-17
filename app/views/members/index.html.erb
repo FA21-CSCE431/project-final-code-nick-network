@@ -71,7 +71,7 @@
             <% # then it displays a default image %>
             <div class="col-md-3">
               <% if member.photo.attached? %>
-                <%= image_tag(member.photo, width: 200) %>
+                <br><%= image_tag(member.photo,height: 140) %>
               <% else %>
                 <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
               <% end %>

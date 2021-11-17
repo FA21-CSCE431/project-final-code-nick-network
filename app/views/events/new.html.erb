@@ -6,14 +6,13 @@
   <% # Rendering event form %>
   <%= render 'form', event: @event %>
 
+  <% # Button to cancel creation of new event %>
   <center>
     <br>
-    <% # Button to cancel new event %>
     <%= link_to '<button type="button"> Back </button>'.html_safe, events_path %>
     <br>
   </center>
 <% else %>
-
   <% # Redirectering user if they aren't an ADMIN %>
   <center>
   <h1>You're not an admin!</h1>

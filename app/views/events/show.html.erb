@@ -47,8 +47,9 @@
               <% end %>
             </div>
 
-            <% # Displaying Description %>
             <div class="col-md-8">
+
+              <% # Displaying Description %>
               <div class="card-body">
                 <p class="card-text"> <%= @event.description %> </p>
               </div>
@@ -86,7 +87,7 @@
                     <td> <%= @event.created_at.strftime("%m/%d/%Y at %I:%M%p") %> </td>
                   </tr>
 
-                  <% # Displaying when the post was updated/edited %>
+                  <% # Displaying when the post was last updated/edited %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Last updated on </th>
                     <td> <%= @event.updated_at.strftime("%m/%d/%Y at %I:%M%p") %> </td>

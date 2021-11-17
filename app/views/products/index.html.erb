@@ -43,16 +43,25 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
+
+<% # If the user is an ADMIN, they can create a new product post %>
 <div class="button-container">
   <% if current_user.uid == "110391296899575374577" %>
     <%= link_to '<button type="button">Add New product</button>'.html_safe, new_product_path %>
   <% end %>
 </div>
+
 <br>
+
 <div class="container">
+
+  <% # Loop that displays all procuts in separate cards %>
   <% @products.each do |product| %>
         <div class="card mb-3" style="border: 3px solid black;">
           <div class="row g-0">
+
+            <% # Displaying image inside the card, if no image is attached %>
+            <% # then it displays a default image %>
             <div class="col-md-3">
             <% if product.photo.attached? %>
               <%= image_tag(product.photo, width: 200) %>
@@ -60,12 +69,16 @@
               <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
             <% end %>
             </div>
+
+            <% # Displaying only 189 characters from the description, as %>
+            <% # more characters can interfeer with the image outline %>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-name", style="font-size: 19px;"> <%= product.name %> </h5>
                 <p class="card-text"> <%= product.description[0..189] %> </p>
               </div>
 
+              <% # Adjusting sizing to display what each fied is %>
               <table class="table table-sm">
                 <colgroup>
                   <col span="1" style="width: 15%;">
@@ -73,6 +86,8 @@
                 </colgroup>
 
                 <tbody>
+
+                  <% # Displaying price %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Price </th>
                     <td> <%= product.price %> </td>
@@ -80,6 +95,8 @@
                 </tbody>
               </table>
 
+              <% # ADMIN can edit and delete events, regular member can %>
+              <% # only view %>
               <div class="card-body">
                 <%= link_to 'View', product, :class => "btn btn-primary" %>
                 <% if current_user.uid == "110391296899575374577" %>

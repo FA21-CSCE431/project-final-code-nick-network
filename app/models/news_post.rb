@@ -6,5 +6,7 @@ class NewsPost < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  # Each NewsPost can have many comments, if a NewsPost is deleted
+  # so are the comments attached to it
   has_many :comments, dependent: :destroy
 end

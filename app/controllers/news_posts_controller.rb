@@ -4,23 +4,23 @@ class NewsPostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_news_post, only: %i[show edit update destroy]
 
-  # GET /events or /events.json
+  # GET /news_posts or /news_posts.json
   def index
     @news_post = NewsPost.all
   end
 
-  # GET /events/1 or /events/1.json
+  # GET /news_posts/1 or /news_posts/1.json
   def show; end
 
-  # GET /events/new
+  # GET /news_posts/new
   def new
     @news_post = NewsPost.new
   end
 
-  # GET /events/1/edit
+  # GET /news_posts/1/edit
   def edit; end
 
-  # POST /events or /events.json
+  # POST /news_posts or /news_posts.json
   def create
     @news_post = NewsPost.new(news_post_params)
 
@@ -35,7 +35,7 @@ class NewsPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1 or /events/1.json
+  # PATCH/PUT /news_posts/1 or /news_posts/1.json
   def update
     respond_to do |format|
       if @news_post.update(news_post_params)
@@ -52,7 +52,7 @@ class NewsPostsController < ApplicationController
     @news_post = NewsPost.find(params[:id])
   end
 
-  # DELETE /events/1 or /events/1.json
+  # DELETE /news_posts/1 or /news_posts/1.json
   def destroy
     @news_post.destroy
     respond_to do |format|

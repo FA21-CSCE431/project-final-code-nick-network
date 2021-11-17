@@ -32,9 +32,12 @@
   </style>
 </head>
 
+
+<% # Check if the current user is the ADMIN %>
 <% if current_user.uid == "110391296899575374577" %>
   <p id="notice"><%= notice %></p>
 
+  <% # Displaying title of product to be deleted %>
   <h1> Deleting <%= @product.name %> </h1>
 
   <div class="del-product">
@@ -43,6 +46,7 @@
       <p>Are you sure you want to permanently delete this product?</p>
       <p><%= @product.name %></p>
 
+      <% # Displaying buttons to confirm and cancel deletion %>
       <div class="form-buttons">
         <%= f.submit("Delete product") %>
         <%= link_to '<button type="button"> Back </button>'.html_safe, products_path %>
@@ -53,6 +57,7 @@
     <br>
   </div>
 
+<% # Displaying the product to be deleted %>
   <div class="container">
           <div class="card mb-3">
             <div class="row g-0">
@@ -98,6 +103,7 @@
           </div>
   </div>
   <% else %>
+  <% # If the user is not an ADMIN, redirect them back %>
     <center>
     <h1>You're not an admin!</h1>
     <%= link_to 'Back', products_path %>

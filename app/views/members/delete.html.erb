@@ -31,6 +31,8 @@
 
   </style>
 </head>
+
+<% # Check if the current user is the ADMIN or the creator of the profile %>
 <% if current_user.email == @member.email  || current_user.uid == "110391296899575374577" %>
   <p id="notice"><%= notice %></p>
 
@@ -39,9 +41,11 @@
   <div class="del-meeting">
     <%= form_for(@member, :method => 'delete') do |f| %>
 
+      <% # Displaying the name of the progile to be deleted %>
       <p>Are you sure you want to permanently delete this member?</p>
       <p><%= @member.name %></p>
 
+      <% # Displaying button to confirm or cancel deletion %>
       <div class="form-buttons">
         <%= f.submit("Delete member") %>
         <%= link_to '<button type="button"> Back </button>'.html_safe, members_path %>
@@ -52,6 +56,7 @@
     <br>
   </div>
 
+<% # Displaying the profile to be deleted %>
   <div class="container">
           <div class="card mb-3">
             <div class="row g-0">
@@ -122,6 +127,8 @@
           </div>
   </div>
   <% else %>
+  <% # If the user is not an ADMIN, or the profile owner, user %>
+  <% # gets redirected %>
     <center>
     <h1>Not your profile!</h1>
     <%= link_to 'Back', members_path %>

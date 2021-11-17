@@ -46,26 +46,37 @@
 
   </head>
 
-
+<% # Displaying navigation bar %>
   <nav class="navbar navbar-custom navbar-toggleable-md">
     <div class="container-fluid">
       <div class="navbar-header">
         <center>
+
+        <% # Displaying logo in the navigation bar %>
         <a class="navbar-brand" href="/">
         <%= image_tag ("https://nick-network.s3.us-east-2.amazonaws.com/imgNN.jpg") , class: "img-responsive", width: "25", height: "25" %>
         </a>
+
+        <% # Displaying organization name in the navigation bar %>
         <a href="/">
         <%= image_tag ("https://nick-network.s3.us-east-2.amazonaws.com/OrgName.jpg") %>
         </a>
+
         </center>
       </div>
       <ul class="nav navbar-nav" style="margin-bottom: 0; margin-left: 0px">
+
+        <% # Displaying a dropdown arrow to collapse navbar %>
         <li>
           <button class="btn btn-secondarydropdown-toggle"  style="margin-top: 8px;" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon">&#8711</span>
           </button>
         </li>
+
       </ul>
+
+      <% # Displaying all pages with corresponding redirects, and sign in and %>
+      <% # and sign out options %>
       <ul class="nav navbar-nav" style="margin-bottom: 0" id="navbarNav">
         <li> <% if !current_user %> <%= link_to "Sign In", user_google_oauth2_omniauth_authorize_path, class:"nav-link" %> <% end %> </li>
         <li> <% if current_user %>  <%= link_to "Sign Out", destroy_user_session_path, class:"nav-link" %> <% end %> </li>

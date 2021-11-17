@@ -32,9 +32,11 @@
   </style>
 </head>
 
+<% # Check if the current user is the ADMIN %>
 <% if current_user.uid == "110391296899575374577" %>
   <p id="notice"><%= notice %></p>
 
+  <% # Displaying title of event to be deleted %>
   <h1> Deleting <%= @event.title %> </h1>
 
   <div class="del-event">
@@ -43,6 +45,7 @@
       <p>Are you sure you want to permanently delete this event?</p>
       <p><%= @event.title %></p>
 
+      <% # Displaying buttons to confirm and cancel deletion %>
       <div class="form-buttons">
         <%= f.submit("Delete Event") %>
         <%= link_to '<button type="button"> Back </button>'.html_safe, events_path %>
@@ -53,6 +56,7 @@
     <br>
   </div>
 
+<% # Displaying the event to be deleted %>
   <div class="container">
           <div class="card mb-3">
             <div class="row g-0">
@@ -102,6 +106,7 @@
           </div>
   </div>
 <% else %>
+<% # If the user is not an ADMIN, redirect them back %>
   <center>
   <h1>You're not an admin!</h1>
   <%= link_to 'Back', events_path %>

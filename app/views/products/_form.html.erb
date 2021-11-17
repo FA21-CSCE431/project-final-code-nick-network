@@ -38,9 +38,13 @@
   </style>
 </head>
 
+<% # Check if the current user is the ADMIN %>
 <% if current_user.uid == "110391296899575374577" %>
+
   <div class="bigger-container">
     <div class="container">
+
+    <% # Displaying any errors found when submitting the form %>
     <%= form_with(model: product) do |form| %>
       <% if product.errors.any? %>
         <div id="error_explanation">
@@ -54,29 +58,33 @@
         </div>
       <% end %>
 
-
+      <% # Displaying field to input product name %>
       <div class="field">
         <%= form.label :name %>
         <br>
         <%= form.text_field :name, placeholder: "Enter Product Name" %>
       </div>
 
+      <% # Displaying field to input product description %>
       <div class="field">
         <%= form.label :description %>
         <br>
         <%= form.text_area :description, placeholder: "Enter Product Description.." %>
       </div>
 
+      <% # Displaying field to input price %>
       <div class="field", style="max-width: 13rem">
         <%= form.label :price, "Enter Product Cost" %>
         <br>
         <%= form.text_field :price %>
       </div>
 
+      <% # Displaying field to upload a photo %>
       <div class="field">
         <%= form.file_field :photo %>
       </div>
 
+      <% # Displaying submit button %>
       <div class="actions">
         <%= form.submit %>
       </div>
@@ -84,6 +92,7 @@
     <% end %>
   </div>
   <% else %>
+  <% # Redirecting the user if they are not an ADMIN %>
     <center>
     <h1>You're not an admin!</h1>
     <%= link_to 'Back', products_path %>

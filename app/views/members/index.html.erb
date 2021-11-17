@@ -1,8 +1,5 @@
 <head>
   <style>
-    /** {
-      font-family: "Comic Sans MS", "Comic Sans", cursive;
-    }*/
 
     h1 {
       text-align: center;
@@ -47,7 +44,8 @@
 
 <h1>Members</h1>
 
-
+<% # Displaying button to create a news profile if one user doesn't have %>
+<% # one alredy %>
 <div class="button-container">
   <% member_exist = false %>
   <% @members.each do |member| %>
@@ -62,33 +60,43 @@
 
 
 <br>
+
+  <% # Loop that displays all profiles in separate cards %>
 <div class="container">
   <% @members.each do |member| %>
         <div class="card mb-3" style="border: 3px solid black;">
           <div class="row g-0">
+
+            <% # Displaying image inside the card, if no image is attached %>
+            <% # then it displays a default image %>
             <div class="col-md-3">
               <% if member.photo.attached? %>
-                <%= image_tag(member.photo, width: 200) %>
+                <br><%= image_tag(member.photo,height: 140) %>
               <% else %>
                 <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
               <% end %>
             </div>
+
+            <% # Displaying profile's name %>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title", style="font-size: 19px;"> <%= member.name %> </h5>
               </div>
 
+              <% # Adjusting sizing to display what each fied is %>
               <table class="table table-sm">
                 <colgroup>
                   <col span="1" style="width: 15%;">
                   <col span="1" style="width: 70%;">
                 </colgroup>
 
+                  <% # Displaying profile's classification %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Classification </th>
                     <td> <%= member.classification %> </td>
                   </tr>
 
+                  <% # Displaying profile's major %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Major </th>
                     <td> <%= member.major %> </td>
@@ -97,6 +105,8 @@
                 </tbody>
               </table>
 
+              <% # ADMIN or owner can edit and delete profiles, regular %>
+              <% # member can only view %>
               <div class="card-body">
                 <%= link_to 'View', member, :class => "btn btn-primary" %>
                 <% if current_user.email == member.email || current_user.uid == "110391296899575374577" %>

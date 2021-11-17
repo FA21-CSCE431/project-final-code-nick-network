@@ -22,6 +22,8 @@
 </head>
 
 <center>
+
+  <% # Displaying information about the officers %>
   <div class="container mt-5 d-flex justify-content-center">
     <div class="card p-3 topM">
       <div class="d-flex align-items-center">
@@ -36,9 +38,7 @@
         </div>
       </div>
 
-
-
-
+      <% # Displaying Instagram and GroupMe social media links %>
       <div class="container mx-auto full-width-row">
         <div class="row width: 100% ">
           <div class="col-sm-4 col-md-3" style="left: 17.5%">
@@ -49,11 +49,12 @@
     </div>
   </center>
 
+  <% # Displaying documentation information for the ADMIN %>
   <% if current_user.uid == "110391296899575374577" %>
     <center>
       <div class="row-fluid">
         <h4>
-          <br>Documenation<br>
+          <br>Documentation<br>
           <%= link_to "Amazon Picture Help", "https://docs.google.com/document/d/15LkgjSE5-InskQar09UcoghFitByyfSqucNxAL0qiRA/edit", target: :_blank%><br>
           <%= link_to "System Support Documenation", "https://docs.google.com/document/d/1EB25wmwI_PCHuceAIERcGpIPJRtQVgEfDPXHnY2OrFs/edit", target: :_blank%><br>
           <%= link_to "Herkou Application Support", "https://docs.google.com/document/d/1LcE3QQhX_AqavPV3S8XqnhI5Hlw8jwGh83IJECfFGmk/edit", target: :_blank%><br>

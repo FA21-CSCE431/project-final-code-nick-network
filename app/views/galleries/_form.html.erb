@@ -37,10 +37,15 @@
 
   </style>
 </head>
+
+<% # Check if the current user is the ADMIN %>
 <% if current_user.uid == "110391296899575374577" %>
+
   <center>
     <div class="bigger-container">
       <div class="container">
+
+        <% # Displaying any errors found when submitting the form %>
         <%= form_with(model: gallery) do |form| %>
           <% if gallery.errors.any? %>
             <div id="error_explanation">
@@ -54,20 +59,24 @@
             </div>
           <% end %>
 
+          <% # Displaying field to input title %>
           <div class="field">
             <%= form.label :title %>
             <%= form.text_field :title %>
           </div>
 
+          <% # Displaying field to input description %>
           <div class="field">
             <%= form.label :description %>
             <%= form.text_field :description %>
           </div>
 
+          <% # Displaying field to upload a photo %>
           <div class="field">
             <%= form.file_field :photo %>
           </div>
 
+          <% # Displaying submit button %>
           <div class="actions">
             <%= form.submit %>
           </div>
@@ -76,6 +85,7 @@
     </div>
   <% end %>
 <% else %>
+  <% # Redirecting the user if they are not an ADMIN %>
   <center>
   <h1>You're not an admin!</h1>
   <%= link_to 'Back', galleries_path %>

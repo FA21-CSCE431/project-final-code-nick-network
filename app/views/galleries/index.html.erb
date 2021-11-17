@@ -41,6 +41,7 @@
 <center>
   <h1>Gallery</h1>
 
+<% # If the user is an ADMIN, they can create a gallery post %>
   <div class="button-container">
     <% if current_user.uid == "110391296899575374577" %>
       <%= link_to '<button type="button">Add New Image</button>'.html_safe, new_gallery_path %>
@@ -48,14 +49,21 @@
   </div>
 
   <div class="row">
+
+    <% # Loop that displays all posts in separate cards %>
     <% @galleries.each do |gallery| %>
       <div class="column">
 
+        <% # Displaying image, if no image is attached then it displays %>
+        <% # a default image %>
         <% if gallery.photo.attached? %>
           <%= image_tag(gallery.photo, width: 1000) %>
         <% else %>
           <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
         <% end %>
+
+        <% # ADMIN can edit and delete events, regular member can %>
+        <% # only view %>
         <td><%= link_to 'Show', gallery %></td>
         <% if current_user.uid == "110391296899575374577" %>
           <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>

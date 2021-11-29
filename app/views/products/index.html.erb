@@ -36,6 +36,10 @@
       width: 8em;
     }
 
+    .contact {
+      text-align:center;
+      font-size:24px;
+    }
 
  </style>
 </head>
@@ -52,6 +56,8 @@
 </div>
 
 <br>
+
+<p class="contact">Please contact the Chief Student Officer at hutchn00@tamu.edu or (806) 420-5220 to purchase any of the products below.</p>
 
 <div class="container">
 
@@ -90,7 +96,7 @@
                   <% # Displaying price %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Price </th>
-                    <td> <%= product.price %> </td>
+                    <td> <%= "%.2f" % product.price %> </td>
                   </tr>
                 </tbody>
               </table>

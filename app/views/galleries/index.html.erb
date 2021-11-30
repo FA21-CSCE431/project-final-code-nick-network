@@ -61,6 +61,7 @@
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
+    height: 50%;
   }
 
   /* Responsive layout - makes a two column-layout instead of four columns */
@@ -82,11 +83,12 @@
 </head>
 <center>
   <h1>Gallery</h1>
+  <p>See the latest series of pictures that have been gather in Aggie Nickwork events and meeting</p>
 
 <% # If the user is an ADMIN, they can create a gallery post %>
   <div class="button-container">
     <% if current_user.uid == "110391296899575374577" %>
-      <%= link_to '<button type="button">Add New Image</button>'.html_safe, new_gallery_path %>
+      <%= link_to '<button type="button">Add New Image (png, jpg, and jpeg extension only)</button>'.html_safe, new_gallery_path %>
     <% end %>
   </div>
 

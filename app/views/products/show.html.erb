@@ -72,7 +72,7 @@
                   <% # Displaying Price %>
                   <tr>
                     <th scope="row", style="font-weight: normal; color: gray;"> Price </th>
-                    <td> <%= @product.price %> </td>
+                    <td> <%= "%.2f" % @product.price %> </td>
                   </tr>
 
                   <% # Displaying when the post was created %>

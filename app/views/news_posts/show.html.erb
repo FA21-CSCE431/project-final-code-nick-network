@@ -92,12 +92,12 @@
 
                     <% # Displaying which user commented at what time %>
                     <%= "Posted by " + comment.name + ", on "%>
-                    <%= comment.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+                    <%= comment.created_at.strftime("%m/%d/%Y at %I:%M%p") + " CST" %>
 
                     <% # Displaying what time comment was edited, if any %>
                     <% # it was edited %>
                     <% if comment.created_at != comment.updated_at %>
-                      <br> <%= "Edited on " + comment.updated_at.strftime("%m/%d/%Y at %I:%M%p") %>
+                      <br> <%= "Edited on " + comment.updated_at.strftime("%m/%d/%Y at %I:%M%p") + " CST" %>
                     <% end %>
 
                     <% # Displaying edit and delete buttons if the user is %>

@@ -6,10 +6,6 @@ class AboutUsController < ApplicationController
   def execute_statement(sql)
     results = ActiveRecord::Base.connection.execute(sql)
 
-    if results.present?
-      return results
-    else
-      return nil
-    end
+    results if results.present?
   end
 end

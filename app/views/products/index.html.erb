@@ -56,7 +56,7 @@
     <% resultname = ActiveRecord::Base.connection.exec_query("select name from members where email='theaggienickwork@gmail.com'") %>
     <% resultphone = ActiveRecord::Base.connection.exec_query("select phone from members where email='theaggienickwork@gmail.com'") %>
     <% resultemail = ActiveRecord::Base.connection.exec_query("select email from members where email='theaggienickwork@gmail.com'") %>
-    Please Contact the administrator, <%= resultname.rows[0][0] %>, at <%= resultphone.rows[0][0] %> or <%= resultemail.rows[0][0] %> for purchase inquiries.<br><br>
+    Please Contact the administrator for purchase inquiries.<br><br>
     <%= link_to '<button type="button"> Contact </button>'.html_safe, member_url(results.rows[0][0]) %><br>
   </h5>
 

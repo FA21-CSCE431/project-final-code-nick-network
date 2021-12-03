@@ -7,9 +7,10 @@
   <%= render 'form', event: @event %>
 
   <% # Rendering buttons to cancel changes %>
-  <div class="container", style="margin-left: 12em;">
-    <%= link_to '<button type="button"> Back </button>'.html_safe, @even %>
-  </div>
+  <center>
+    <%= link_to '<button type="button"> Back </button>'.html_safe, @event %>
+    <br>
+  </center>
 <% else %>
 <% # If the user is not an ADMIN, redirect them back %>
   <center>

@@ -25,7 +25,6 @@
       width: 8em;
     }
 
-
  </style>
 </head>
 
@@ -100,10 +99,13 @@
 
         <% # ADMIN can edit and delete events, regular member can %>
         <% # only view %>
-        <div class="container", style="margin-left: 30em;">
+        <center>
           <% if current_user.uid == "110391296899575374577" %>
             <%= link_to '<button type="button"> Edit </button>'.html_safe, edit_event_path(@event) %>
           <% end %>
           <%= link_to '<button type="button"> Back </button>'.html_safe, events_path %>
-        </div>
+          <% if current_user.uid == "110391296899575374577" %>
+            <%= link_to '<button type="button"> Destroy </button>'.html_safe, delete_event_path(@event) %>
+          <% end %>
+        </center>
 </div>

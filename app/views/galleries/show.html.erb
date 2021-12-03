@@ -46,7 +46,7 @@
   <% # Displaying image, if no image is attached then it displays %>
   <% # a default image %>
   <% if @gallery.photo.attached? %>
-    <%= image_tag(@gallery.photo, width: 1000) %>
+    <%= image_tag(@gallery.photo, height: 300) %>
   <% else %>
     <div class="card mb-3" style="border: 3px solid black;">
     <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
@@ -55,8 +55,8 @@
 
   <% # ADMIN can edit and delete events, regular member can %>
   <% # only view %>
-  <% if current_user.uid == "110391296899575374577" %>
-    <%= link_to 'Edit', edit_gallery_path(@gallery) %>
+  <% if current_user.uid == "110391296899575374577" %><br>
+    <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
     <%= link_to 'Destroy', delete_gallery_path(@gallery) %>
   <% end %>
 <br>

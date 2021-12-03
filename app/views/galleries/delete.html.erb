@@ -44,7 +44,7 @@
 
     <% # Displaying photo to be deleted %>
     <% if @gallery.photo.attached? %>
-      <%= image_tag(@gallery.photo, width: 1000) %>
+      <%= image_tag(@gallery.photo, height: 300) %>
     <% else %>
       <%= image_tag("https://nick-network.s3.us-east-2.amazonaws.com/Default.jpg", class: "css_img") %>
     <% end %>

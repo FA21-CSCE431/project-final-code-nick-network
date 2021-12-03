@@ -76,13 +76,10 @@
 
 <% # Displaying information about the officers in a card %>
 <div class="President" style="width: 18rem;">
-  <div class="card">
-    <img class="css_img" src="https://nick-network.s3.us-east-2.amazonaws.com/Nick-hutch.PNG" alt="Card image cap" width="150" height="200">
-    <h5 class="Title">Chief Student Officer</h5>
-    <h5 class="name">Nicolas Hutcheson</h5>
-    <p class="card-text"></p>
-    <%= link_to '<button type="button"> Contact </button>'.html_safe, contact_index_path %>
-  </div>
+  <% results = ActiveRecord::Base.connection.exec_query("select id from members where email='theaggienickwork@gmail.com'") %>
+  <% resultname = ActiveRecord::Base.connection.exec_query("select name from members where email='theaggienickwork@gmail.com'") %>
+  <%= resultname.rows[0][0] %>'s Contact<br>
+  <%= link_to '<button type="button"> Contact </button>'.html_safe, member_url(results.rows[0][0]) %>
 </div>
 
 <% # Displaying Membership details section %>

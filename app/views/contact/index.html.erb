@@ -27,12 +27,18 @@
   <div class="container mt-5 d-flex justify-content-center">
     <div class="card p-3 topM">
       <div class="d-flex align-items-center">
-        <div class="image"> <img src="https://nick-network.s3.us-east-2.amazonaws.com/Nick-hutch.PNG" width="150"> </div>
           <div class="ml-3 w-100">
-            <h4 class="mb-0 mt-0">Nic Hutcheson</h4>
+            <% results = ActiveRecord::Base.connection.exec_query("select id from members where email='theaggienickwork@gmail.com'") %>
+            <% resultname = ActiveRecord::Base.connection.exec_query("select name from members where email='theaggienickwork@gmail.com'") %>
+            <% resultphone = ActiveRecord::Base.connection.exec_query("select phone from members where email='theaggienickwork@gmail.com'") %>
+            <% resultemail = ActiveRecord::Base.connection.exec_query("select email from members where email='theaggienickwork@gmail.com'") %>
+            <h3><u>Administrator</u></h3>
+            <h4 class="mb-0 mt-0">
+              <%= resultname.rows[0][0] %></h4>
               <span>Position: Chief Student Officer</span>
-              <h5>Email: hutchn00@tamu.edu</h5>
-              <p>Phone: (806)420-5220</p>
+              <h5>Email: <%= resultemail.rows[0][0] %></h5>
+              <p>Phone: <%= resultphone.rows[0][0] %></p><br>
+              <%= link_to '<button type="button"> Contact </button>'.html_safe, member_url(results.rows[0][0]) %>
             </div>
           </div>
         </div>

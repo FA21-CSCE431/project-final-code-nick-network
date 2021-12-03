@@ -49,15 +49,28 @@
 <h1>Products</h1>
 
 <% # If the user is an ADMIN, they can create a new product post %>
-<div class="button-container">
+<div><center>
+
+  <h5>
+    <% results = ActiveRecord::Base.connection.exec_query("select id from members where email='theaggienickwork@gmail.com'") %>
+    <% resultname = ActiveRecord::Base.connection.exec_query("select name from members where email='theaggienickwork@gmail.com'") %>
+    <% resultphone = ActiveRecord::Base.connection.exec_query("select phone from members where email='theaggienickwork@gmail.com'") %>
+    <% resultemail = ActiveRecord::Base.connection.exec_query("select email from members where email='theaggienickwork@gmail.com'") %>
+    Please Contact the administrator, <%= resultname.rows[0][0] %>, at <%= resultphone.rows[0][0] %> or <%= resultemail.rows[0][0] %> for purchase inquiries.<br><br>
+    <%= link_to '<button type="button"> Contact </button>'.html_safe, member_url(results.rows[0][0]) %><br>
+  </h5>
+
+  <div class="button-container">
   <% if current_user.uid == "110391296899575374577" %>
     <%= link_to '<button type="button">Add New product</button>'.html_safe, new_product_path %>
   <% end %>
-</div>
+  </div>
+
+</div></center>
 
 <br>
 
-<p class="contact">Please contact the Chief Student Officer at hutchn00@tamu.edu or (806) 420-5220 to purchase any of the products below.</p>
+
 
 <div class="container">
 

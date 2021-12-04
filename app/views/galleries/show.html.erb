@@ -61,5 +61,9 @@
   <% end %>
 <br>
 <% # Link to go back to index page %>
-<%= link_to 'Back', galleries_path %>
+<% if @gallery.title == 'qr_code_contact' %>
+  <%= link_to 'Back', '/contact/index'.html_safe %>
+<% else %>
+  <%= link_to 'Back', galleries_path %>
+<% end %>
 </center>

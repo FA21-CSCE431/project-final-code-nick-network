@@ -48,9 +48,13 @@
       <div class="container mt-5 d-flex justify-content-center">
         <div class="row width: 100% ">
           <div class="ml-3 w-100">
-            <% results = ActiveRecord::Base.connection.exec_query("select id from galleries where title='qr_code_contact'") %>
+            <% results_gal = ActiveRecord::Base.connection.exec_query("select id from galleries where title='qr_code_contact'") %>
             Press the following button to get access to social media QR codes.<br><br>
-            <%= link_to '<button type="button"> QR Codes </button>'.html_safe, gallery_url(results.rows[0][0]) %><br>
+            <% if results_gal.rows[0].nil? %>
+              <%= "No QR codes have been posted, check back later." %>
+            <% else %>
+            <%=  link_to '<button type="button"> QR Codes </button>'.html_safe, gallery_url(results_gal.rows[0][0]) %><br>
+            <% end %>
           </div>
         <div>
       </div>

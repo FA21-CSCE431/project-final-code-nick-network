@@ -96,6 +96,11 @@
 
     <% # Loop that displays all posts in separate cards %>
     <% @galleries.each do |gallery| %>
+
+      <% if gallery.title == 'qr_code_contact' %>
+      <% %>
+      <% else %>
+
       <div class="column">
 
         <% # Displaying image, if no image is attached then it displays %>
@@ -114,6 +119,7 @@
           <td><%= link_to 'Destroy', delete_gallery_path(gallery) %></td>
         <% end %>
       </div>
+      <% end %>
     <% end %>
   </div>
 </center>

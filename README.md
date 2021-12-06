@@ -12,17 +12,19 @@ Windows, macOs, linux
 
 Docker Engine
 
+PostgreSQL
+
 * Configuration
 
 Enter “bundle install” on the console
 
 * Database creation
 
-Uses postgresql
+Enter “rails db:create” on the console
 
 * Database initialization
 
-Enter “rails db:create && rails db:migrate” on the console
+Enter “rails db:migrate” on the console
 
 * How to run the test suite
 
@@ -30,7 +32,7 @@ Enter “rails server --binding=0.0.0.0” on the console
 
 Open an internet browser of your choice and go to “http://localhost:3000/”
 
-Deploy to test-application (by pushing code to the development branch) and this will automatically be deployed.
+The website will be ran locally, were tests can be made
 
 * Deployment instructions
 
@@ -39,8 +41,11 @@ Login through administrator account in Heroku
 Connect Github to Heroku
 
 Deploy Application
+
+Any deploy to test-application (by pushing code to the development branch) and this will automatically be checked by CI/CD and deployed
+
  
- 
+ ## Objective:
  
 This website was created for an academic project that provided an organization with a place to communicate. It was made by a 6 member group taking a software engineering class.
  

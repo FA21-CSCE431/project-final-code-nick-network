@@ -46,17 +46,17 @@ README
       
 * CI/CD
 
-      Add the /.github/workflows/workflow.yml file to the .github directory
+      Add a /.github/workflows/workflow.yml file to the .github directory
 
-      This workflow.yml file can be configued to contain the appropraite Github actions; in this projects case the actions were 1) runners, 2) workflows, 3) events, 4) jobs, 5) steps, and 6) actions.
+      This workflow.yml file can be configued to contain the appropraite Github actions; in this project's case the actions were 1) runners, 2) workflows, 3) events, 4) jobs, 5) steps, and 6) actions.
       
-      This establish Continuous Integration
+      This establishes Continuous Integration
       
-      For Continuous Deployment, the aforementioned Heroku project must first me created
+      For Continuous Deployment, the aforementioned Heroku project must first be created
 
       Then connect the Github repository to the project
 
-      Now the pipeline for CD can be set up, with a development, staging, and production application
+      Now the pipeline for CD can be set up, with a development, staging, and production application (where each application can correspond to a branch in the repository)
 
  
  ## Objective:

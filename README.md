@@ -16,47 +16,70 @@ README
 
 * Configuration
 
-      Enter “bundle install” on the console
+     1. First download the project from github and extract it
+     2. Open the console and type:
+     
+      docker pull dmartinez05/ruby_rails_postgresql:latest
+      
+     3. Open the console on the location of the project and type:
+     
+      docker run --rm -it --volume "${PWD}:/Nick-Network" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest
+      
+     4. Type the following commands to install all gems
 
-* Database creation
+      cd Nick-Network   
+      bundle install
 
-      Enter “rails db:create” on the console
+* Database creation and initialization
+      
+     1. To create the databse, type the following on the console:
 
-* Database initialization
+      rails db:create
 
-      Enter “rails db:migrate” on the console
+     2. To initialize the databse, type the following on the console:
 
-* How to run the test suite
+      rails db:migrate
 
-      Enter “rails server --binding=0.0.0.0” on the console
+* Running the test suite
 
-      Open an internet browser of your choice and go to “http://localhost:3000/”
+     1. Enter the following on the console
 
-      The website will be ran locally, were tests can be made
+      rails server --binding=0.0.0.0
+
+     2. Open an internet browser of your choice and go to
+     
+      http://localhost:3000/
+
+     3. The website will be ran locally, were tests can be made
 
 * Deployment instructions
 
-      Login through administrator account in Heroku
+     1. Login through administrator account in Heroku
 
-      Connect Github to Heroku
+     2. Connect Github to Heroku
 
-      Deploy Application
+     3. Deploy Application
 
-      Any deploy to test-application (by pushing code to the development branch) and this will automatically be checked by CI/CD and deployed
+     4. Any deploy to test-application (by pushing code to the development branch) and this will automatically be checked by CI/CD and deployed
+
+     5. Customer deployment: https://aggie-nickwork.herokuapp.com/
+     6. Development deployment: https://nick-network-dev-djg2zfhssp8z1.herokuapp.com/
       
 * CI/CD
 
-      Add a /.github/workflows/workflow.yml file to the .github directory
+     1. Add the following file to the .github directory
+    
+      /.github/workflows/main.yml 
 
-      This workflow.yml file can be configued to contain the appropraite Github actions; in this project's case the actions were 1) runners, 2) workflows, 3) events, 4) jobs, 5) steps, and 6) actions.
+     2. This workflow.yml file can be configued to contain the appropraite Github actions; in this project's case the actions were 1) runners, 2) workflows, 3) events, 4) jobs, 5) steps, and 6) actions.
       
-      This establishes Continuous Integration
+     3. This establishes Continuous Integration
       
-      For Continuous Deployment, the aforementioned Heroku project must first be created
+     4. For Continuous Deployment, the aforementioned Heroku project must first be created
 
-      Then connect the Github repository to the project
+     5. Then connect the Github repository to the project
 
-      Now the pipeline for CD can be set up, with a development, staging, and production application (where each application can correspond to a branch in the repository)
+     6. Now the pipeline for CD can be set up, with a development, staging, and production application (where each application can correspond to a branch in the repository)
 
  
  ## Objective:
